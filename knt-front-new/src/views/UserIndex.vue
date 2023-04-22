@@ -2,6 +2,9 @@
   <!-- d-flex align-items-center flex-column -->
   <div class="product-page">
 
+    <!-- NAVIGATION TEST -->
+    <router-link to="/products">Products</router-link>
+
     <!--Search Bar-->
     <input type="text" class="input user-search-bar" v-model="search" @input="onInputChange"
       placeholder="Search your name..." />
@@ -32,7 +35,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import axios from 'axios'
-import SimpleKeyboard from "./components/SimpleKeyboardUserPage.vue";
+import SimpleKeyboard from "../components/SimpleKeyboardUserPage.vue";
 
 interface User {
   id: number;
@@ -73,6 +76,7 @@ export default defineComponent({
   },
   mounted(){
     //change the URL to http://127.0.0.1:5000/users later. Also idk how to do SSR yet
+    this.users = [];
     axios
     .get('http://127.0.0.1:5000/admin/users')
       .then(response => {
