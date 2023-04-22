@@ -32,7 +32,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import axios from 'axios'
-import SimpleKeyboard from "./SimpleKeyboardUserPage.vue";
+import SimpleKeyboard from "./components/SimpleKeyboardUserPage.vue";
 
 interface User {
   id: number;

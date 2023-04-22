@@ -5,7 +5,7 @@
 <script>
 import Keyboard from "simple-keyboard";
 import "simple-keyboard/build/css/index.css";
-import "./UserKeyboardStyle.css";
+import "/src/assets/UserKeyboardStyle.css";
 
 export default {
   name: "SimpleKeyboard",
