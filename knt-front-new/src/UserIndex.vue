@@ -20,7 +20,7 @@
 
     <div class="bottom-section d-flex align-items-center flex-column">
 
-      <div class="keyboard">
+      <div class="keyboard d-flex align-items-center">
         <SimpleKeyboard @onChange="onChange" @onKeyPress="onKeyPress" :input="input" />
       </div>
 
@@ -32,7 +32,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import axios from 'axios'
-import SimpleKeyboard from "./SimpleKeyboard.vue";
+import SimpleKeyboard from "./SimpleKeyboardUserPage.vue";
 
 interface User {
   id: number;
@@ -96,13 +96,15 @@ export default defineComponent({
 
 .top-section {
   overflow: scroll;
-  top: 5%;
+  top: 55px;
   height: 45%;
 }
 
 .bottom-section {
   bottom: 0;
   height: 45%;
+  display: flex;
+  justify-content: center;
 }
 
 .header {
@@ -129,7 +131,9 @@ export default defineComponent({
   width: 20%;
 }
 
-.keyboard {
-  width: 80%;
+.keyboard{
+  width: 100%;
+  height: 100%;
 }
+
 </style>

@@ -1,0 +1,12 @@
+.simple-keyboard.hg-theme-default.myTheme {
+    border: 5px solid rgba(1, 54, 129, 0.7);
+    border-radius: 10px;
+    margin: 10px;
+    width: calc(100% - 20px);
+}
+
+.simple-keyboard.hg-layout-default .hg-button.hg-colored {
+    background: rgba(8, 68, 128, 0.612);
+    color: white;
+    height: 8vh;
+}
