@@ -3,7 +3,7 @@
   <div class="product-page">
 
     <!-- NAVIGATION TEST -->
-    <router-link to="/products">Products</router-link>
+    <!-- <router-link to="/products">Products</router-link> -->
 
     <!--Search Bar-->
     <input type="text" class="input user-search-bar" v-model="search" @input="onInputChange"
@@ -13,12 +13,15 @@
     <div class="top-section">
 
       <!--Displaying users-->
-      <div v-for="user in searchedUsers()" :key="user.id"
-        class="d-flex user-card align-items-center border-bottom border-2">
+      <router-link
+      :to="{name:'ProductsIndex', params:{id:user.id}}" 
+        v-for="user in searchedUsers()" :key="user.id"
+        class="d-flex user-card align-items-center border-bottom border-2 "
+        >
         <div class="p-3">
           <h5>{{ user.firstName + " " + user.lastName }}</h5>
         </div>
-      </div>
+      </router-link >
     </div>
 
     <div class="bottom-section d-flex align-items-center flex-column">
@@ -122,10 +125,16 @@ export default defineComponent({
   margin: 0.5rem 0.5rem 0;
 }
 
+.user-card{
+  text-decoration: none; 
+  color: inherit;
+}
+
 .user-card:hover {
   background-color: #e5e5e5;
   transition-timing-function: ease;
   transition: 0.5s;
+  color: inherit;
 }
 
 .user-search-bar {
@@ -139,5 +148,4 @@ export default defineComponent({
   width: 100%;
   height: 100%;
 }
-
 </style>

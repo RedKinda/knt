@@ -7,12 +7,12 @@ const routes: Array<RouteRecordRaw> = [
 
   {
     path:'/',
-    name:'user-index',
+    name:'UserIndex',
     component: UserIndex
   },
   {
-    path:'/products',
-    name:'products-index',
+    path:'/products/:id',
+    name:'ProductsIndex',
     component: Products
   }
   

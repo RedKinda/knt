@@ -28,16 +28,16 @@ export default {
       theme: "hg-theme-default hg-layout-default myTheme",
       layout: {
         default: [
-          "q w e r t y u i {bksp}",
-          "a s d f g h j k l",
-          "z x c v b n m p o",
+          "Q W E R T Y U I {bksp}",
+          "A S D F G H J K L",
+          "Z X C V B N M P O",
           "{space}"
         ]
       },
       buttonTheme: [
         {
           class: "hg-colored",
-          buttons: "q w e r t y u i {bksp} a s d f g h j k l z x c v b n m p o {space}"
+          buttons: "Q W E R T Y U I {bksp} A S D F G H J K L Z X C V B N M P O {space}"
         }
   ]
     });
