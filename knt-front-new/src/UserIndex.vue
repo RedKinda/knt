@@ -31,6 +31,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import axios from 'axios'
 import SimpleKeyboard from "./SimpleKeyboard.vue";
 
 interface User {
@@ -40,27 +41,7 @@ interface User {
   money: number;
 }
 
-//Static Data
 const listOfUsers: User[] = [];
-const userOne: User = { id: 1, firstName: "Name1", lastName: "Surname1", money: 100 };
-const userTwo: User = { id: 2, firstName: "Name2", lastName: "Surname3", money: 200 };
-const userFour: User = { id: 3, firstName: "Name3", lastName: "Surname3", money: 300 };
-const userThree: User = { id: 3, firstName: "Name3", lastName: "Surname3", money: 300 };
-const userFive: User = { id: 3, firstName: "Name3", lastName: "Surname3", money: 300 };
-const userSix: User = { id: 3, firstName: "Name3", lastName: "Surname3", money: 300 };
-const userSeven: User = { id: 3, firstName: "Name3", lastName: "Surname3", money: 300 };
-const userEight: User = { id: 3, firstName: "Name3", lastName: "Surname3", money: 300 };
-
-listOfUsers.push(userOne);
-listOfUsers.push(userTwo);
-listOfUsers.push(userThree);
-listOfUsers.push(userFour);
-listOfUsers.push(userFive);
-listOfUsers.push(userSix);
-listOfUsers.push(userSeven);
-listOfUsers.push(userEight);
-
-//http://127.0.0.1:5000/admin/users
 
 export default defineComponent({
 
@@ -89,6 +70,18 @@ export default defineComponent({
     searchedUsers() {
       return this.users.filter(user => (user.firstName + " " + user.lastName).toLowerCase().includes(this.search.toLowerCase()))
     }
+  },
+  mounted(){
+    //change the URL to http://127.0.0.1:5000/users later. Also idk how to do SSR yet
+    axios
+    .get('http://127.0.0.1:5000/admin/users')
+      .then(response => {
+        for(let i = 0; i < response.data.length; i++){
+          const userToAdd: User = {id: response.data[i].id, firstName: response.data[i].firstName, lastName: response.data[i].lastName, money: response.data[i].balance};
+          console.log(userToAdd)
+          this.users.push(userToAdd);
+        }
+      })
   }
 });
 </script>
