@@ -9,5 +9,7 @@ export default defineNuxtConfig({
           apiBase: 'api/',
           backendBase: 'http://localhost:5000/'
         }
-    }
+    },
+
+    css: ["bootstrap/dist/css/bootstrap.min.css"]
 })
